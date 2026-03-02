@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD Supabase</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <h2>CRUD Tabel Coba</h2>
+
+    <input type="text" id="nama" placeholder="Masukkan Nama">
+    <button onclick="insertData()">Tambah</button>
+
+    <hr>
+
+    <table border="1" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Created At</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="data-table"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
