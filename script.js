@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", loadData)
 
 async function loadData() {
     const { data, error } = await db
-        .from('coba')
+        .from('Coba')
         .select('*')
         .order('id', { ascending: false })
 
@@ -45,7 +45,7 @@ async function insertData() {
 
 // DELETE
 async function deleteData(id) {
-    await db.from('coba').delete().eq('id', id)
+    await db.from('Coba').delete().eq('id', id)
     loadData()
 }
 
@@ -54,7 +54,7 @@ async function editData(id, oldNama) {
     const newNama = prompt("Edit Nama:", oldNama)
     if (!newNama) return
 
-    await db.from('coba')
+    await db.from('Coba')
         .update({ nama: newNama })
         .eq('id', id)
 
