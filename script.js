@@ -32,6 +32,10 @@ async function loadData() {
                 <td>${row.id}</td>
                 <td>${row.nama}</td>
                 <td>${new Date(row.created_at).toLocaleString()}</td>
+                <td>
+                    <button onclick="editData(${row.id}, '${row.nama}')">Edit</button>
+                    <button onclick="deleteData(${row.id})">Hapus</button>
+                </td>
             </tr>
         `
     })
@@ -43,8 +47,17 @@ async function insertData() {
 
     if (!nama) return alert("Nama wajib diisi")
 
-    await db.from('Coba').insert([{ nama }])
+    const { data, error } = await db
+        .from('Coba')
+        .insert([{ nama }])
 
+    if (error) {
+        alert("Insert gagal: " + error.message)
+        console.log(error)
+        return
+    }
+
+    alert("Insert berhasil!")
     document.getElementById('nama').value = ''
     loadData()
 }
