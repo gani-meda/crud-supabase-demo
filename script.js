@@ -43,7 +43,7 @@ async function insertData() {
 
     if (!nama) return alert("Nama wajib diisi")
 
-    await db.from('coba').insert([{ nama }])
+    await db.from('Coba').insert([{ nama }])
 
     document.getElementById('nama').value = ''
     loadData()
