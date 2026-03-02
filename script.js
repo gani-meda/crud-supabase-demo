@@ -33,7 +33,8 @@ async function loadData() {
                 <td>${row.nama}</td>
                 <td>${new Date(row.created_at).toLocaleString()}</td>
                 <td>
-                    oke
+                    <button onclick="editData(${row.id}, '${row.nama}')">Edit</button>
+                    <button onclick="deleteData(${row.id})">Hapus</button>
                 </td>
             </tr>
         `
