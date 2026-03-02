@@ -1,5 +1,5 @@
 const supabaseUrl = 'https://oozjuadzrmemwdzdhigw.supabase.co'
-const supabaseKey = 'sb_secret_fXh7fOAPuJNCIH9G5NYFww_utadhr8u'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vemp1YWR6cm1lbXdkemRoaWd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzODg1NzEsImV4cCI6MjA4Nzk2NDU3MX0.4kTDKErml18tVJK6zY4dmgyCvdbgFkwbcBrrLa9ijZ8'
 
 const { createClient } = supabase
 const db = createClient(supabaseUrl, supabaseKey)
