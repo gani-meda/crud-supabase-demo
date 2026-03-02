@@ -8,10 +8,20 @@ const db = createClient(supabaseUrl, supabaseKey)
 document.addEventListener("DOMContentLoaded", loadData)
 
 async function loadData() {
+    console.log("Load data dijalankan...")
+
     const { data, error } = await db
         .from('Coba')
         .select('*')
         .order('id', { ascending: false })
+
+    console.log("DATA:", data)
+    console.log("ERROR:", error)
+
+    if (error) {
+        alert("Error: " + error.message)
+        return
+    }
 
     const table = document.getElementById('data-table')
     table.innerHTML = ''
@@ -22,10 +32,6 @@ async function loadData() {
                 <td>${row.id}</td>
                 <td>${row.nama}</td>
                 <td>${new Date(row.created_at).toLocaleString()}</td>
-                <td>
-                    <button onclick="editData(${row.id}, '${row.nama}')">Edit</button>
-                    <button onclick="deleteData(${row.id})">Hapus</button>
-                </td>
             </tr>
         `
     })
