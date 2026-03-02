@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Koneksi Supabase</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <h2>Test Koneksi Supabase</h2>
+    <button onclick="testConnection()">Tes Koneksi</button>
+
+    <h3>Status:</h3>
+    <pre id="result">Belum dites...</pre>
+
+    <script>
+        // 🔴 GANTI DENGAN DATA SUPABASE KAMU
+        const supabaseUrl = "https://oozjuadzrmemwdzdhigw.supabase.co"
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vemp1YWR6cm1lbXdkemRoaWd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzODg1NzEsImV4cCI6MjA4Nzk2NDU3MX0.4kTDKErml18tVJK6zY4dmgyCvdbgFkwbcBrrLa9ijZ8"
+
+        const { createClient } = supabase
+        const db = createClient(supabaseUrl, supabaseKey)
+
+        async function testConnection() {
+            const resultElement = document.getElementById("result")
+            resultElement.innerText = "Mencoba koneksi..."
+
+            try {
+                const { data, error } = await db
+                    .from('coba')
+                    .select('*')
+                    .limit(1)
+
+                if (error) {
+                    resultElement.innerText = "❌ ERROR:\n" + error.message
+                } else {
+                    resultElement.innerText = "✅ Koneksi Berhasil!\n\nData sample:\n" + JSON.stringify(data, null, 2)
+                }
+
+            } catch (err) {
+                resultElement.innerText = "❌ Gagal koneksi:\n" + err.message
+            }
+        }
+    </script>
+
+</body>
+</html>
