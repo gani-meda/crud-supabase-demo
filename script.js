@@ -1,5 +1,5 @@
-const supabaseUrl = 'https://YOUR_PROJECT_ID.supabase.co'
-const supabaseKey = 'YOUR_ANON_PUBLIC_KEY'
+const supabaseUrl = 'https://oozjuadzrmemwdzdhigw.supabase.co'
+const supabaseKey = 'sb_secret_fXh7fOAPuJNCIH9G5NYFww_utadhr8u'
 
 const { createClient } = supabase
 const db = createClient(supabaseUrl, supabaseKey)
